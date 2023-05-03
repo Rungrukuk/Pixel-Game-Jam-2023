@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] private PlayerInputHandler inputHandler;
-    
     public Collider2D InteractedCollider { get; private set; }
+    
     private bool canInteract;
     private bool hasInteracted;
 
@@ -15,8 +15,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (canInteract)
         {
-            Debug.Log("Tap to Listen Spirit");
-            if (inputHandler.InteractInput)
+            Debug.Log("Tap Enter to Listen Spirit");
+            if (inputHandler.InteractInput && !hasInteracted)
             {
                 hasInteracted = true;
                 Debug.Log($"{InteractedCollider.gameObject.name} Says Hello");
