@@ -7,7 +7,7 @@ public class PlayerInputHandler : MonoBehaviour
     private PlayerInput playerInput;
 
     public Vector2 RawMovementInput { get; private set; }
-    
+    public bool InteractInput { get; private set; }
     public int NormalizedInputX { get; private set; }
     public int NormalizedInputY { get; private set; }
 
@@ -18,7 +18,6 @@ public class PlayerInputHandler : MonoBehaviour
     
     public void OnMoveInput(InputAction.CallbackContext context)
     {
-        Debug.Log(context.ReadValue<Vector2>());
         RawMovementInput = context.ReadValue<Vector2>();
         if (Mathf.Abs(RawMovementInput.x) > 0.5f)
             NormalizedInputX = (int)(RawMovementInput.x * Vector2.right).normalized.x;
@@ -29,5 +28,17 @@ public class PlayerInputHandler : MonoBehaviour
             NormalizedInputY = (int)(RawMovementInput.y * Vector2.up).normalized.y;
         else
             NormalizedInputY = 0;
+    }
+
+    public void OnInteraction(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            InteractInput = true;
+        }
+        if (context.canceled)
+        {
+            InteractInput = false;
+        }
     }
 }
