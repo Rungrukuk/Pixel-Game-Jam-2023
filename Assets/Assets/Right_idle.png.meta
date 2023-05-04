@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 622b5db5bdd82884a9b9026ba4719bff
+guid: 867c70a353a680d4ea9c53acae3ed535
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: down_idle_0
+      name: Right_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1f326ae32af90048bc27e3ada971da0
-      internalID: 1913138386
+      spriteID: 9f7fbcdb65fc4414792277688272164c
+      internalID: 1018452200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: down_idle_1
+      name: Right_idle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f74df81bf75de6499c918b05f7c23ba
-      internalID: 1988980749
+      spriteID: b116a7a9a65e8674fb8588dbc54ec792
+      internalID: 789087466
       vertices: []
       indices: 
       edges: []
@@ -169,8 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      down_idle_0: 1913138386
-      down_idle_1: 1988980749
+      Right_idle_0: 1018452200
+      Right_idle_1: 789087466
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
