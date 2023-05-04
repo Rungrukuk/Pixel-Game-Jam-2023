@@ -19,11 +19,12 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
+        RawMovementInput.Normalize();
         if (Mathf.Abs(RawMovementInput.x) > 0.5f)
             NormalizedInputX = (int)(RawMovementInput.x * Vector2.right).normalized.x;
         else
             NormalizedInputX = 0;
-
+        
         if(Mathf.Abs(RawMovementInput.y)>0.5f)
             NormalizedInputY = (int)(RawMovementInput.y * Vector2.up).normalized.y;
         else

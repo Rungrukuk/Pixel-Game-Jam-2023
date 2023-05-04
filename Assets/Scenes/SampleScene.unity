@@ -1881,6 +1881,8 @@ GameObject:
   - component: {fileID: 1825670028}
   - component: {fileID: 1825670031}
   - component: {fileID: 1825670033}
+  - component: {fileID: 1825670035}
+  - component: {fileID: 1825670034}
   - component: {fileID: 1825670030}
   - component: {fileID: 1825670032}
   m_Layer: 0
@@ -1930,8 +1932,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_SortingOrder: 7
+  m_Sprite: {fileID: 1584667728, guid: 9e0c2782722aafa4da18f00d572c321b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2066,7 +2068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputHandler: {fileID: 1825670028}
   rb: {fileID: 1825670030}
-  movementSpeed: 5
+  movementSpeed: 1.5
 --- !u!61 &1825670032
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2106,6 +2108,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputHandler: {fileID: 1825670028}
+--- !u!95 &1825670034
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825670025}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8cfc415ab0b0e7b4da886fbbc925b1ef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1825670035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825670025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e865da9a91492dc4fa278ea0ba3bdff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1825670034}
+  rb: {fileID: 1825670030}
 --- !u!1 &1905135779
 GameObject:
   m_ObjectHideFlags: 0
