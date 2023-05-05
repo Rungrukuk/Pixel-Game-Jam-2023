@@ -646,7 +646,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exclamationMark: {fileID: 1371288992}
-  inkJson: {fileID: 4900000, guid: c47484bfe19771a44bf3068d6071b1f0, type: 3}
+  inkJson:
+  - {fileID: 4900000, guid: 8c318eee0a7f16d45abc21a7449d97fe, type: 3}
+  - {fileID: 4900000, guid: fc5dff186d9399e4db013a6fd7e216bd, type: 3}
 --- !u!1 &170987969
 GameObject:
   m_ObjectHideFlags: 0

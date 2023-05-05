@@ -23,7 +23,11 @@ public class DialogueManager : MonoBehaviour
 
     public bool DialogueIsPlaying { get; private set; }
 
+    
     private bool hasInteracted;
+
+    public float DialogueExitStartTime { get; private set; }
+
 
     private void Awake()
     {
@@ -31,7 +35,6 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.LogWarning("Found more than one dialogue manager");
         }
-
         _instance = this;
     }
 
@@ -40,7 +43,6 @@ public class DialogueManager : MonoBehaviour
         hasInteracted = false;
         DialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
-
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
 
@@ -69,6 +71,7 @@ public class DialogueManager : MonoBehaviour
         {
             hasInteracted = false;
         }
+        
     }
 
     public static DialogueManager GetInstance()
@@ -87,11 +90,12 @@ public class DialogueManager : MonoBehaviour
 
     public void ExitDialogueMode()
     {
+        DialogueExitStartTime = Time.time;
         DialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
     }
-
+    
     private void ContinueStory()
     {
         if (currentStory.canContinue)
@@ -125,7 +129,6 @@ public class DialogueManager : MonoBehaviour
         {
             choices[i].gameObject.SetActive(false);
         }
-
         StartCoroutine(SelectFirstChoice());
     }
 

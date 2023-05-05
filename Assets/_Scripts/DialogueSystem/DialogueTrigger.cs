@@ -13,7 +13,8 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] private List<TextAsset> inkJson;
 
     private bool isDialogPlaying;
-
+    private float dialogueExitWaitTime = 0.1f;
+    
     private void Awake()
     {
         playerInRange = false;
@@ -28,6 +29,14 @@ public class DialogueTrigger : MonoBehaviour
             {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJson[0]);
                 isDialogPlaying = true;
+            }
+
+            if (isDialogPlaying && !DialogueManager.GetInstance().DialogueIsPlaying)
+            {
+                if (Time.time>=DialogueManager.GetInstance().DialogueExitStartTime + dialogueExitWaitTime)
+                {
+                    isDialogPlaying = false;
+                }
             }
         }
     }

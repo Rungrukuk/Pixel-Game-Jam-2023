@@ -7,9 +7,7 @@ Spirit One: Who Are You ?
         -> main
     *[Should not you first introduce yourself before asking questions?]
         Should not you first introduce yourself before asking questions?
-        -> main
-    *->
-     ->SecondApproach
+        -> SecondApproach
 -> END
 === SecondApproach ===
  Sorry My name is Anna
