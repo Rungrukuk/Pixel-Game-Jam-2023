@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private PlayerInputHandler inputHandler;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float movementSpeed;
+
     private void Update()
     {
-        rb.velocity = new Vector2(inputHandler.NormalizedInputX * movementSpeed,
-            inputHandler.NormalizedInputY * movementSpeed);
+        if (!DialogueManager.GetInstance().DialogueIsPlaying)
+        {
+            rb.velocity = new Vector2(InputHandler.GetInstance().normalizedInputX * movementSpeed,
+                InputHandler.GetInstance().normalizedInputY * movementSpeed);
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 }
