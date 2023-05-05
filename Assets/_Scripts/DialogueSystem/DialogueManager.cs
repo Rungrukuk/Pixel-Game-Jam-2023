@@ -20,14 +20,15 @@ public class DialogueManager : MonoBehaviour
     private Story currentStory;
     
     private static DialogueManager _instance;
-
+    
     public bool DialogueIsPlaying { get; private set; }
 
     
     private bool hasInteracted;
 
     public float DialogueExitStartTime { get; private set; }
-    
+
+    private string conversationalistName;
 
 
     private void Awake()
@@ -80,11 +81,12 @@ public class DialogueManager : MonoBehaviour
         return _instance;
     }
 
-    public void EnterDialogueMode(TextAsset inkJson)
+    public void EnterDialogueMode(TextAsset inkJson,string spiritName)
     {
         currentStory = new Story(inkJson.text);
         DialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+        conversationalistName = spiritName;
         ContinueStory();
     }
 
@@ -101,7 +103,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
-            dialogueText.text = currentStory.Continue();
+            dialogueText.text = conversationalistName + ": " + currentStory.Continue();
             DisplayChoices();
         }
         else

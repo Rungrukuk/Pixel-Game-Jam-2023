@@ -24,7 +24,7 @@ public class Spirit2_DialogueTrigger : DialogueTrigger
                 {
                     currentDialogueIndex = inkJson.Count-1;
                 }
-                DialogueManager.GetInstance().EnterDialogueMode(inkJson[currentDialogueIndex]);
+                DialogueManager.GetInstance().EnterDialogueMode(inkJson[currentDialogueIndex],name);
                 IsDialogPlaying = true;
             }
 
