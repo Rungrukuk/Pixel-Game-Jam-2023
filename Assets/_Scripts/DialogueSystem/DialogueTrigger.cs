@@ -7,27 +7,49 @@ using UnityEngine.InputSystem;
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Ink JSON")]
-    [SerializeField] protected GameObject exclamationMark;
-    protected bool PlayerInRange;
+    [SerializeField] private GameObject exclamationMark;
+    private bool playerInRange;
 
-    [SerializeField] protected List<TextAsset> inkJson;
+    [SerializeField] private List<TextAsset> inkJson;
 
-    protected bool IsDialogPlaying;
-    protected float DialogueExitWaitTime = 0.1f;
+    private bool isDialogPlaying;
+    private float dialogueExitWaitTime = 0.1f;
+    private int currentDialogueIndex;
     private void Awake()
     {
-        PlayerInRange = false;
+        currentDialogueIndex = 0;
+        playerInRange = false;
         exclamationMark.SetActive(false);
     }
-    
+
+    private void Update()
+    {
+        if (playerInRange)
+        {
+            if (InputHandler.GetInstance().interactInput && !isDialogPlaying)
+            {
+                DialogueManager.GetInstance().EnterDialogueMode(inkJson[currentDialogueIndex]);
+                isDialogPlaying = true;
+            }
+
+            if (isDialogPlaying && !DialogueManager.GetInstance().DialogueIsPlaying)
+            {
+                if (Time.time>=DialogueManager.GetInstance().DialogueExitStartTime + dialogueExitWaitTime)
+                {
+                    isDialogPlaying = false;
+                    currentDialogueIndex++;
+                }
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            IsDialogPlaying = false;
+            isDialogPlaying = false;
             exclamationMark.SetActive(true);
-            PlayerInRange = true;
+            playerInRange = true;
         }
     }
 
@@ -35,9 +57,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            IsDialogPlaying = false;
+            isDialogPlaying = false;
             exclamationMark.SetActive(false);
-            PlayerInRange = false;
+            playerInRange = false;
         }
     }
 }
