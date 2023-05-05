@@ -28,7 +28,6 @@ public class DialogueManager : MonoBehaviour
 
     public float DialogueExitStartTime { get; private set; }
     
-    public int CurrentDialogueIndex { get; private set; }
 
 
     private void Awake()
@@ -42,7 +41,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        CurrentDialogueIndex = 0;
         hasInteracted = false;
         DialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
@@ -93,7 +91,6 @@ public class DialogueManager : MonoBehaviour
 
     public void ExitDialogueMode()
     {
-        CurrentDialogueIndex++;
         DialogueExitStartTime = Time.time;
         DialogueIsPlaying = false;
         dialoguePanel.SetActive(false);

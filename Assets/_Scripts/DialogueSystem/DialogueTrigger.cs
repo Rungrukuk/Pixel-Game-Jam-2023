@@ -14,9 +14,10 @@ public class DialogueTrigger : MonoBehaviour
 
     private bool isDialogPlaying;
     private float dialogueExitWaitTime = 0.1f;
-    
+    private int currentDialogueIndex;
     private void Awake()
     {
+        currentDialogueIndex = 0;
         playerInRange = false;
         exclamationMark.SetActive(false);
     }
@@ -27,7 +28,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (InputHandler.GetInstance().interactInput && !isDialogPlaying)
             {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJson[DialogueManager.GetInstance().CurrentDialogueIndex]);
+                DialogueManager.GetInstance().EnterDialogueMode(inkJson[currentDialogueIndex]);
                 isDialogPlaying = true;
             }
 
@@ -36,6 +37,7 @@ public class DialogueTrigger : MonoBehaviour
                 if (Time.time>=DialogueManager.GetInstance().DialogueExitStartTime + dialogueExitWaitTime)
                 {
                     isDialogPlaying = false;
+                    currentDialogueIndex++;
                 }
             }
         }
