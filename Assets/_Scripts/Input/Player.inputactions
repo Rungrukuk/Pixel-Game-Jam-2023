@@ -167,17 +167,6 @@
                     "action": "Interactions",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6bb97aff-9e02-45d0-b4d1-1ffee92df56c",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interactions",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
