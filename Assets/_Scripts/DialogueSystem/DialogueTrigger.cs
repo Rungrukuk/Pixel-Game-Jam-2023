@@ -27,7 +27,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (InputHandler.GetInstance().interactInput && !isDialogPlaying)
             {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJson[0]);
+                DialogueManager.GetInstance().EnterDialogueMode(inkJson[DialogueManager.GetInstance().CurrentDialogueIndex]);
                 isDialogPlaying = true;
             }
 

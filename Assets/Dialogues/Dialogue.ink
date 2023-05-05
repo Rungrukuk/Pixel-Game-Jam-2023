@@ -1,3 +1,4 @@
-This is a test!
-This is second line!
-And This is Third Line!
+->ThirdApproach
+=== ThirdApproach ===
+Spirit: Here is the place that people came and burrieed their loved ones.
+-> END
