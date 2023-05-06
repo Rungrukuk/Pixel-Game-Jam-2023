@@ -3251,6 +3251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguePanel: {fileID: 1652217264}
   dialogueText: {fileID: 763567125}
+  uiAnimator: {fileID: 1652217268}
   choices:
   - {fileID: 946426314}
   - {fileID: 170987969}

@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class DialogueTrigger : MonoBehaviour
 {    
     [SerializeField] private GameObject exclamationMark;
+
     protected bool PlayerInRange;
     protected bool IsDialogPlaying;
     protected float DialogueExitWaitTime = 0.1f;

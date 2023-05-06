@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue UI")] 
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private Animator uiAnimator;
 
     [Header("Choices")] 
     [SerializeField] private GameObject[] choices;
@@ -87,16 +88,15 @@ public class DialogueManager : MonoBehaviour
         DialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
         conversationalistName = spiritName;
+        uiAnimator.SetBool("isOpen",true);
         ContinueStory();
     }
 
 
     public void ExitDialogueMode()
     {
-        DialogueExitStartTime = Time.time;
-        DialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
-        dialogueText.text = "";
+        uiAnimator.SetBool("isOpen",false);
+        StartCoroutine(WaitForAnimation());
     }
     
     private void ContinueStory()
@@ -134,7 +134,20 @@ public class DialogueManager : MonoBehaviour
         }
         StartCoroutine(SelectFirstChoice());
     }
+    public void MakeChoice(int choiceIndex)
+    {
+        currentStory.ChooseChoiceIndex(choiceIndex);
+    }
 
+    private IEnumerator WaitForAnimation()
+    {
+        yield return new WaitForSeconds(0.5f);
+        DialogueExitStartTime = Time.time;
+        DialogueIsPlaying = false;
+        dialoguePanel.SetActive(false);
+        dialogueText.text = "";
+        
+    }
     private IEnumerator SelectFirstChoice()
     {
         EventSystem.current.SetSelectedGameObject(null);
@@ -142,9 +155,6 @@ public class DialogueManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
     }
 
-    public void MakeChoice(int choiceIndex)
-    {
-        currentStory.ChooseChoiceIndex(choiceIndex);
-    }
+
     
 }
