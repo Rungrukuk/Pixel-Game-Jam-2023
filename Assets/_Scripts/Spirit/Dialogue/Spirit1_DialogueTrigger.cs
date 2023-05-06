@@ -24,6 +24,7 @@ public class Spirit1_DialogueTrigger : DialogueTrigger
                 {
                     currentDialogueIndex = inkJson.Count-1;
                 }
+
                 DialogueManager.GetInstance().EnterDialogueMode(inkJson[currentDialogueIndex],name);
                 IsDialogPlaying = true;
             }
@@ -33,6 +34,10 @@ public class Spirit1_DialogueTrigger : DialogueTrigger
                 if (Time.time>=DialogueManager.GetInstance().DialogueExitStartTime + DialogueExitWaitTime)
                 {
                     IsDialogPlaying = false;
+                    if (currentDialogueIndex == 1)
+                    {
+                        StaticVariables.IsHideAndSeekActivated = true;
+                    }
                     currentDialogueIndex++;
                 }
             }
